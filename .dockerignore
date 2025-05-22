@@ -1,0 +1,30 @@
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.env
+
+# Dependencies
+node_modules/
+
+# Local development
+.git
+.gitignore
+.idea/
+.vscode/
+
+# Data and uploads
+chroma_db/
+app/uploads/*
+!app/uploads/.gitkeep
+
+# Frontend
+frontend/
+
+# Misc
+*.log
+.DS_Store

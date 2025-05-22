@@ -1,0 +1,12 @@
+{
+  "tenant_id": "tenant2",
+  "name": "Contoh Perusahaan 2",
+  "vector_namespace": "tenant2_ns",
+  "api_key": "",
+  "description": "Config contoh untuk tenant 2.",
+  "data_source": {
+    "type": "web_crawl",
+    "url": "https://www.smart-it.co.id/id/jasa-seo/"
+  },
+  "assistant_instruction": "Anda adalah asisten digital untuk layanan Jasa SEO Smart-IT. Jawab pertanyaan berdasarkan hasil crawling website dan data yang diberikan."
+}

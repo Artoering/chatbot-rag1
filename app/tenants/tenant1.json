@@ -1,0 +1,12 @@
+{
+  "tenant_id": "tenant1",
+  "name": "Contoh Perusahaan 1",
+  "vector_namespace": "tenant1_ns",
+  "api_key": "",
+  "description": "Config contoh untuk tenant 1.",
+  "data_source": {
+    "type": "pdf",
+    "file": "fieldmate_manual.pdf"
+  },
+  "assistant_instruction": "Asisten Fieldmate, jawab dengan singkat dan jelas."
+}
