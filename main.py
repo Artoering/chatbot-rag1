@@ -5,8 +5,13 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
-# Re-export FastAPI app from app.api for uvicorn/main.py
+# Create FastAPI app instance
 app = api_app
+
+# Add health check endpoint
+# @app.get("/health")
+# async def health_check():
+#     return {"status": "healthy"}
 
 if __name__ == "__main__":
     import uvicorn

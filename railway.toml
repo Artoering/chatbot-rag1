@@ -1,0 +1,16 @@
+[build]
+builder = "docker"
+
+[deploy]
+healthcheckPath = "/health"
+healthcheckTimeout = 100
+restartPolicyType = "on-failure"
+restartPolicyMaxRetries = 10
+
+[mounts]
+source = "/data"
+destination = "/app/chroma_db"
+
+[[services]]
+internal_port = 8000
+protocol = "http"

@@ -23,29 +23,27 @@ export function ChatMessage({ message }: Props) {
 
   return (
     <div className={clsx("chat", isUser ? "chat-end" : "chat-start")}>
-      <div className="chat-image avatar">
-        <div className="w-8 rounded-full bg-base-300 p-1.5">
-          {isUser ? (
-            <FontAwesomeIcon
-              icon={faUser}
-              className="text-base-content w-4 h-4"
-            />
-          ) : (
-            <FontAwesomeIcon
-              icon={faTerminal}
-              className="text-primary w-4 h-4"
-            />
-          )}
-        </div>
-      </div>
       <div
         className={clsx(
           "chat-bubble",
           isUser ? "chat-bubble-primary" : "chat-bubble-neutral"
         )}
       >
-        <div className="prose">
-          {(isUser ? "user : " : "bot : ") + message.content}
+        <div className="prose" style={{ color: isUser ? "#000" : "#000" }}>
+          <div className="chat-image avatar">
+            {isUser ? (
+              <FontAwesomeIcon
+                icon={faUser}
+                className="text-base-content w-4 h-4"
+              />
+            ) : (
+              <FontAwesomeIcon
+                icon={faTerminal}
+                className="text-primary w-4 h-4"
+              />
+            )}
+            {(isUser ? "user : " : "bot : ") + message.content}
+          </div>
         </div>
       </div>
       {!isUser && message.sources && message.sources.length > 0 && (
