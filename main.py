@@ -1,12 +1,21 @@
+import os
+import sys
 from fastapi import FastAPI
-from app.api import app as api_app
 from dotenv import load_dotenv
+
+# Add the project root directory to Python path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Load environment variables from .env file
 load_dotenv()
 
-# Create FastAPI app instance
-app = api_app
+try:
+    from app.api import app as api_app
+    app = api_app
+except ImportError as e:
+    print(f"Error importing app.api: {e}")
+    print(f"Current PYTHONPATH: {sys.path}")
+    raise
 
 # Add health check endpoint
 # @app.get("/health")
