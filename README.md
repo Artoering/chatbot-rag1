@@ -1,96 +1,53 @@
-# Multi-Tenant Chatbot with RAG
+---
+title: Multi-Tenant ChatBot RAG
+emoji: 🤖
+colorFrom: blue
+colorTo: purple
+sdk: docker
+pinned: false
+---
 
-## Quick Access
-- Frontend: https://chatbot-rag1.vercel.app
-- Backend API: https://chatbot-rag1-production.up.railway.app/api
+# Multi-Tenant ChatBot RAG System
 
-### Available Tenants
-1. Fieldmate (tenant1)
-   - Knowledge base: Fieldmate Manual
-   - Use case: Technical support and documentation
-
-2. SEO Service (tenant2)
-   - Knowledge base: SEO documentation
-   - Use case: SEO consulting and guidance
-
-### Testing the API
-Test the API with this curl command:
-```bash
-curl "https://chatbot-rag1-production.up.railway.app/api/tenant1/chat?query=What%20is%20Fieldmate?"
-```
-
-A multi-tenant chatbot application that uses Retrieval-Augmented Generation (RAG) to provide accurate, context-aware responses based on tenant-specific knowledge bases.
+This is a multi-tenant chatbot system that uses Retrieval Augmented Generation (RAG) to provide context-aware responses based on tenant-specific knowledge bases.
 
 ## Features
 
-- Multi-tenant support with isolated knowledge bases
+- Multi-tenant support
 - PDF document ingestion
-- Web page content ingestion
-- Real-time chat interface
-- Source attribution for responses
-- Modern WhatsApp-style UI
+- Web page ingestion
+- RAG-powered responses using ChromaDB and OpenAI
+- Modern React frontend with Next.js
+- FastAPI backend
 
 ## Tech Stack
 
+- **Backend**: FastAPI, LangChain, ChromaDB
+- **Frontend**: Next.js, TypeScript, TailwindCSS
+- **Infrastructure**: Docker, Hugging Face Spaces
+
+## API Endpoints
+
+- Upload knowledge PDF (POST /api/{tenant_id}/knowledge/pdf)
+- Add knowledge from website (POST /api/{tenant_id}/knowledge/web)
+- Delete PDF knowledge (DELETE /api/{tenant_id}/knowledge/pdf)
+- Update assistant instruction (PATCH /api/{tenant_id}/instruction)
+
+## Development
+
 ### Backend
-- FastAPI
-- LangChain
-- ChromaDB
-- OpenAI
-- Python 3.11+
+```bash
+uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+```
 
 ### Frontend
-- Next.js
-- TypeScript
-- Tailwind CSS
-- DaisyUI
-
-## Documentation
-
-- [API Documentation](docs/API.md) - Detailed API endpoints and usage
-- [Frontend Setup](frontend/README.md) - Frontend setup and configuration
-
-## Getting Started
-
-1. Clone the repository
-2. Set up environment variables:
-   ```bash
-   cp .env.example .env
-   # Edit .env with your OpenAI API key
-   ```
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   cd frontend && npm install
-   ```
-4. Run the backend:
-   ```bash
-   uvicorn main:app --reload
-   ```
-5. Run the frontend:
-   ```bash
-   cd frontend && npm run dev
-   ```
-
-## Deployment
-
-- Backend: Deployed on Railway.app
-- Frontend: Deploy on Vercel
-
-## Project Structure
-
-```
-.
-├── app/                    # Backend application code
-│   ├── api/               # API endpoints
-│   ├── ingestion/         # Document ingestion logic
-│   ├── rag/              # RAG implementation
-│   ├── tenants/          # Tenant configurations
-│   └── utils/            # Utility functions
-├── frontend/             # Next.js frontend
-└── docs/                # Documentation
+```bash
+cd frontend
+yarn install
+yarn dev
 ```
 
-## License
+## Environment Variables
 
-MIT
+Make sure to set up these environment variables:
+- `OPENAI_API_KEY`: Your OpenAI API key

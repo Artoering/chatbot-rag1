@@ -19,4 +19,4 @@ if __name__ == "__main__":
     print("Registered routes:")
     for route in app.routes:
         print(f"{route.path} [{','.join(route.methods)}]")
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, port=8000)

@@ -1,0 +1,10 @@
+{
+    "runtime": "docker",
+    "sdk": "docker",
+    "build": {
+        "dockerfile": "Dockerfile.hf"
+    },
+    "secrets": [
+        "OPENAI_API_KEY"
+    ]
+}
